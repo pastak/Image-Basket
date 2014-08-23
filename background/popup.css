@@ -1,0 +1,16 @@
+body{
+  width: 650px;
+}
+#imageList{
+  margin: auto;
+  width: 630px;
+}
+#imageList img.selected{
+  border: rgba(0, 119, 255, 0.5) 3px solid;
+}
+#imageList img{
+  border: rgba(0, 119, 255, 0) 3px solid;
+  max-width: 200px;
+  max-height: 120px;
+  margin-left: 10px;
+}

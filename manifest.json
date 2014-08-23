@@ -1,0 +1,24 @@
+{
+  "name": "Image Basket",
+  "description": "Collect Images and paste its URL as HTML, Markdown or some format",
+  "short_name": "ImageBasket",
+  "version": "1.0.0",
+  "author": "pastak",
+  "permissions": [
+    "<all_urls>",
+    "notifications",
+    "contextMenus",
+    "tabs",
+    "clipboardWrite",
+    "clipboardRead",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "background/popup.html"
+  },
+  "background": {
+    "scripts": ["background/main.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
