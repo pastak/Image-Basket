@@ -31,10 +31,10 @@
         window.close();
         setTimeout(function(){
           chrome.notifications.clear(notificationId, function(){});
-        }, 1500);
+        }, 1000);
       });
     }else{
-      $('#imageList > img.selected').removeClass('selected');
+      $('#imageList img.selected').removeClass('selected');
       $(this).addClass('selected');
     }
   };
