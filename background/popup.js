@@ -28,6 +28,7 @@
         iconUrl: '../img/icon128.png',
         imageUrl: url
       }, function(notificationId){
+        window.close();
         setTimeout(function(){
           chrome.notifications.clear(notificationId, function(){});
         }, 1500);
