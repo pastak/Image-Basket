@@ -37,3 +37,20 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.contextMenus.onClicked.addListener(onClickHandler);
+
+chrome.runtime.onMessage.addListener(function(request, sender, response){
+  if(request.action === 'copyNotification'){
+    chrome.notifications.create('IB_'+Date.now(), {
+      type: 'image',
+      title: 'copy to your clipbord',
+      message: 'enjoy!',
+      iconUrl: '../img/icon128.png',
+      imageUrl: request.imageUrl
+    }, function(notificationId){
+      setTimeout(function(){
+        chrome.notifications.clear(notificationId, function(){});
+      }, 1000);
+    });
+  }
+  response();
+});

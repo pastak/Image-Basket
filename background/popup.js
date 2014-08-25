@@ -21,17 +21,8 @@
       textArea.select();
       document.execCommand('copy');
       $(textArea).remove();
-      chrome.notifications.create('IB_'+Date.now(), {
-        type: 'image',
-        title: 'copy to your clipbord',
-        message: 'enjoy!',
-        iconUrl: '../img/icon128.png',
-        imageUrl: url
-      }, function(notificationId){
+      chrome.runtime.sendMessage(chrome.runtime.id, {action: 'copyNotification', imageUrl: url}, function(){
         window.close();
-        setTimeout(function(){
-          chrome.notifications.clear(notificationId, function(){});
-        }, 1000);
       });
     }else{
       $('#imageList img.selected').removeClass('selected');
