@@ -11,13 +11,13 @@ function onClickHandler(info, tab){
           title: title
         });
         chrome.storage.sync.set(newItems, function(){
-          var notificationId = 'IB_'+Date.now();
-          chrome.notifications.create(notificationId, {
-            type: 'basic',
+          chrome.notifications.create('IB_'+Date.now(), {
+            type: 'image',
             title: 'Success saving',
-            message: '',
+            message: 'congraturation!!',
+            iconUrl: '../img/icon128.png',
             imageUrl: imageUrl
-          }, function(){
+          }, function(notificationId){
             setTimeout(function(){
               chrome.notifications.clear(notificationId, function(){});
             }, 1000);
